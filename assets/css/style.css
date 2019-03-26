@@ -1,6 +1,10 @@
+
+
 .crystal-image {
     width: 300px;
     height: 300px;
   }
 
-  
+h1 span{
+    background-color:coral;
+}
