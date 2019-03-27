@@ -20,6 +20,13 @@
     <li> There will be four crystals displayed as buttons on the page.</li><br>
 
     <li> You will be shown a random number at the start of the game.</li><br>
+    
+    <div class = "playerstats">
+    <p id ="numbertomatch"></p>
+    <p>Player wins: </p> <p id ="playerwins"></p>
+    <p>Player losses: </p> <p id ="playerlosses"></p>
+    <p>Player Score: </p ><p id ="currentplayerscore"></p>
+    </div>
  
     <li> When you click on a crystal, it will add a specific amount of points to the yout total score. </li><br>
 
@@ -32,13 +39,12 @@
 
     </ul>
 
-    <p id ="numbertomatch">Blank for now</p>
     </p>
 
-    <img class="crystal-image" src="assets/images/crystal1.jpg" alt="crystals">
-    <img class="crystal-image" src="assets/images/crystal2.jpg" alt="crystals">
-    <img class="crystal-image" src="assets/images/crystal3.jpg" alt="crystals">
-    <img class="crystal-image" src="assets/images/crystal4.jpg" alt="crystals">
+    <img class="crystal-image" id = "crystal-image1" src="assets/images/crystal1.jpg" alt="crystals">
+    <img class="crystal-image" id = "crystal-image2" src="assets/images/crystal2.jpg" alt="crystals">
+    <img class="crystal-image" id = "crystal-image3" src="assets/images/crystal3.jpg" alt="crystals">
+    <img class="crystal-image" id = "crystal-image4" src="assets/images/crystal4.jpg" alt="crystals">
 
     </div>
 
@@ -47,14 +53,31 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script type="text/javascript">
+
+        var crystalvalueoptions = [3, 5, 7, 10];
         // Here we establish the randomized target number the user has to guess too
         var randomtargetnumber = Math.floor(Math.random() * (102)) + 19;
 
         // Here we set the "number-to-guess" header to match the "targetNumber".
         // Eventually this will allow us to change the HTML to match the value in the JavaScript.
-        $("#number-to-guess").text(targetNumber);
+        $("#numbertomatch").text(randomtargetnumber);
+
+
+
+        
+
+
+
+
+
+
+
+
+
 
         var counter = 0;
+
+        
         $(".crystal-image").on("click", function () {
 
             counter += 10;

@@ -8,3 +8,20 @@
 h1 span{
     background-color:coral;
 }
+
+.playerstats{
+    height: 250px;
+    width: 200px;
+    background-color: blue;
+    float: right;
+    font-size: 20px;
+    margin-right: 5%;
+    color: white;
+    text-align: center;
+
+    
+}
+
+#numbertomatch{
+    text-align: center;
+}
