@@ -26,7 +26,7 @@
     <p>Player wins: </p> <p id ="playerwins"></p>
     <p>Player losses: </p> <p id ="playerlosses"></p>
     <p>Player Score: </p ><p id ="currentplayerscore"></p>
-    <p id ="userwinsorlosestext"> kk</p>
+    <p id ="userwinsorlosestext"> Winner?</p>
     </div>
  
     <li> When you click on a crystal, it will add a specific amount of points to the yout total score. </li><br>
@@ -60,12 +60,9 @@
         var randomtargetnumber = Math.floor(Math.random() * (102)) + 19;
         // Here we set the "number-to-guess" header to match the "targetNumber".
         $("#numbertomatch").text(randomtargetnumber);
-
+        var userwins = 0;
+        var userlosses = 0;
         var userscore = 0;
-
-        if (userscore >randomtargetnumber){
-            console.log("everything working correctly")
-        }
 
         $("#currentplayerscore").text(userscore);
 
@@ -100,10 +97,14 @@
             if (userscore >randomtargetnumber){
             $("#userwinsorlosestext").text(" LOSER!")
             startnewgame();
+            userlosses ++;
+            $("#playerlosses").text(userlosses)
             }
             else if(userscore === randomtargetnumber){
                 $("#userwinsorlosestext").text(" WINNER!")
                 startnewgame();
+                userwins++;
+                $("#playerwins").text(userwins)
             }
         }
 
@@ -112,6 +113,7 @@
         randomtargetnumber = Math.floor(Math.random() * (102)) + 19;
         userscore = 0;
         $("#numbertomatch").text(randomtargetnumber);
+        $("#currentplayerscore").text(userscore);
     }
 
 
