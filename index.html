@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>simple crystal game</title>
+
+    <link rel="stylesheet" href=assets/css/style.css> </head>
+     <body>
+
+
+
+
+    <!-- Here we added a header which will hold the "number-to-guess" -->
+    <h1><span>Crystals Collector!!!!<span></h1>
+
+    <br><br>
+
+    <p>
+        <ul>
+    <li> There will be four crystals displayed as buttons on the page.</li><br>
+
+    <li> You will be shown a random number at the start of the game.</li><br>
+    
+    <div class = "playerstats">
+    <p id ="numbertomatch"></p>
+    <p>Player wins: </p> <p id ="playerwins"></p>
+    <p>Player losses: </p> <p id ="playerlosses"></p>
+    <p>Player Score: </p ><p id ="currentplayerscore"></p>
+    <p id ="userwinsorlosestext"> Winner?</p>
+    </div>
+ 
+    <li> When you click on a crystal, it will add a specific amount of points to the yout total score. </li><br>
+
+ 
+    <li> Player wins if their total score matches the random number from the beginning of the game.</li><br>
+ 
+    <li> Player loses if their score goes above the random number.</li><br>
+ 
+    <li> The game restarts whenever the player wins or loses.</li><br>
+
+    </ul>
+
+    </p>
+
+    <img class="crystal-image" id = "crystal-image1" src="assets/images/crystal1.jpg" alt="crystals">
+    <img class="crystal-image" id = "crystal-image2" src="assets/images/crystal2.jpg" alt="crystals">
+    <img class="crystal-image" id = "crystal-image3" src="assets/images/crystal3.jpg" alt="crystals">
+    <img class="crystal-image" id = "crystal-image4" src="assets/images/crystal4.jpg" alt="crystals">
+
+    </div>
+
+    <!-- JAVASCRIPT  -->
+    <!-- ========================================= -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        var crystalvalueoptions = [3, 5, 7, 10];
+        // Here we establish the randomized target number the user has to guess too
+        var randomtargetnumber = Math.floor(Math.random() * (102)) + 19;
+        // Here we set the "number-to-guess" header to match the "targetNumber".
+        $("#numbertomatch").text(randomtargetnumber);
+        var userwins = 0;
+        var userlosses = 0;
+        var userscore = 0;
+
+        $("#currentplayerscore").text(userscore);
+
+        $("#crystal-image1").on("click", function (){
+            userscore += 10
+            $("#currentplayerscore").text(userscore);
+            userwinsorloses();
+        })
+        $("#crystal-image2").on("click", function (){
+            userscore += 7
+            $("#currentplayerscore").text(userscore);
+            userwinsorloses();
+        })
+
+
+        $("#crystal-image3").on("click", function (){
+            userscore += 5
+            $("#currentplayerscore").text(userscore);
+            userwinsorloses();
+        })
+
+        $("#crystal-image4").on("click", function (){
+            userscore += 3
+            $("#currentplayerscore").text(userscore);
+            userwinsorloses();
+        })
+
+
+
+
+        function userwinsorloses(){
+            if (userscore >randomtargetnumber){
+            $("#userwinsorlosestext").text(" LOSER!")
+            startnewgame();
+            userlosses ++;
+            $("#playerlosses").text(userlosses)
+            }
+            else if(userscore === randomtargetnumber){
+                $("#userwinsorlosestext").text(" WINNER!")
+                startnewgame();
+                userwins++;
+                $("#playerwins").text(userwins)
+            }
+        }
+
+
+        function startnewgame(){
+        randomtargetnumber = Math.floor(Math.random() * (102)) + 19;
+        userscore = 0;
+        $("#numbertomatch").text(randomtargetnumber);
+        $("#currentplayerscore").text(userscore);
+    }
+
+
+
+
+
+        
+    </script>
+    </body>
+
+</html>
